@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+
 /**
  * Created by michael on 2013/8/20.
  */
@@ -21,6 +22,7 @@ public class JSONLoader extends AsyncTaskLoader<JSONObject> {
         super(context);
         forceLoad();
     }
+
     @Override
     public JSONObject loadInBackground() {
         //TODO michael 亲记得翻墙喔

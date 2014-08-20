@@ -11,11 +11,12 @@ import com.android.volley.toolbox.ImageLoader.ImageListener;
 import com.android.volley.toolbox.Volley;
 
 import java.util.List;
+
 /**
  * Created by michael on 2013/8/20.
  */
 public class ImageAdapter extends ArrayAdapter<String> {
-    
+
     private RequestQueue mQueue;
     private ImageLoader mImageLoader;
 
@@ -24,7 +25,7 @@ public class ImageAdapter extends ArrayAdapter<String> {
         mQueue = Volley.newRequestQueue(getContext());
         mImageLoader = new ImageLoader(mQueue, new BitmapCache());
     }
-    
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         String url = getItem(position);

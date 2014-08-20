@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
+
 /**
  * Created by michael on 2013/8/20.
  */
@@ -30,9 +31,9 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.volley_demo_layout);
-    
+
         mQueue = Volley.newRequestQueue(getApplicationContext());
-    
+
         findViewById(R.id.volley_req).setOnClickListener(this);
         findViewById(R.id.http_client_req).setOnClickListener(this);
         findViewById(R.id.image_loading).setOnClickListener(this);
@@ -42,18 +43,18 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.volley_req:
-            requestVolley();
-            break;
-        case R.id.http_client_req:
-            requestHttpClient();
-            break;
-        case R.id.image_loading:
-            startActivity(new Intent(self, ImageLoadingActivity.class));
-            break;
-        case R.id.load_net_image:
-            loadNetworkImageView();
-            break;
+            case R.id.volley_req:
+                requestVolley();
+                break;
+            case R.id.http_client_req:
+                requestHttpClient();
+                break;
+            case R.id.image_loading:
+                startActivity(new Intent(self, ImageLoadingActivity.class));
+                break;
+            case R.id.load_net_image:
+                loadNetworkImageView();
+                break;
         }
     }
 
@@ -65,10 +66,11 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
                     @Override
                     public void onResponse(JSONObject response) {
                         long time = System.currentTimeMillis() - requestStartTime;
-                        Toast.makeText(VolleyDemoActivity.this,"Volley 请求耗时 : " + time,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(VolleyDemoActivity.this, "Volley 请求耗时 : " + time, Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Volley 请求耗时 : " + time);
                     }
-                }, null));
+                }, null
+        ));
         requestStartTime = System.currentTimeMillis();
         mQueue.start();
     }
@@ -81,19 +83,21 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
                 requestStartTime = System.currentTimeMillis();
                 return new JSONLoader(getApplicationContext());
             }
+
             @Override
             public void onLoadFinished(Loader<JSONObject> loader, JSONObject result) {
                 long time = System.currentTimeMillis() - requestStartTime;
-                Toast.makeText(VolleyDemoActivity.this,"HttpClient 请求耗时 : " + time,Toast.LENGTH_SHORT).show();
+                Toast.makeText(VolleyDemoActivity.this, "HttpClient 请求耗时 : " + time, Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "HttpClient 请求耗时 : " + time);
                 getSupportLoaderManager().destroyLoader(0);
             }
+
             @Override
             public void onLoaderReset(Loader<JSONObject> loader) {
             }
         });
     }
-    
+
     private void loadNetworkImageView() {
         String url = "https://github.com/apple-touch-icon-144.png";
         NetworkImageView view = (NetworkImageView) findViewById(R.id.network_image_view);
