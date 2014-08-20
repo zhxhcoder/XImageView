@@ -65,7 +65,7 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
                     @Override
                     public void onResponse(JSONObject response) {
                         long time = System.currentTimeMillis() - requestStartTime;
-                        Toast.makeText(VolleyDemoActivity.this,"Volley 请求结束 : " + time,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(VolleyDemoActivity.this,"Volley 请求耗时 : " + time,Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Volley 请求耗时 : " + time);
                     }
                 }, null));
@@ -84,7 +84,7 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
             @Override
             public void onLoadFinished(Loader<JSONObject> loader, JSONObject result) {
                 long time = System.currentTimeMillis() - requestStartTime;
-                Toast.makeText(VolleyDemoActivity.this,"HttpClient 请求结束 : " + time,Toast.LENGTH_SHORT).show();
+                Toast.makeText(VolleyDemoActivity.this,"HttpClient 请求耗时 : " + time,Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "HttpClient 请求耗时 : " + time);
                 getSupportLoaderManager().destroyLoader(0);
             }
