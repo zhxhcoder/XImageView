@@ -58,7 +58,7 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
 
     private void requestVolley() {
         // Volley 请求
-        String url = "http://www.google.com/uds/GnewsSearch?q=Obama&v=1.0";
+        String url = "http://www.google.com/uds/GnewsSearch?q=Michael&v=1.0";
         mQueue.add(new JsonObjectRequest(Method.GET, url, null,
                 new Listener<JSONObject>() {
                     @Override
