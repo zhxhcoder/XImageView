@@ -7,6 +7,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.Listener;
@@ -57,14 +58,15 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
     }
 
     private void requestVolley() {
-        // Volley 请求
-        String url = "http://www.google.com/uds/GnewsSearch?q=Michael&v=1.0";
+        // Volley 请求（似乎不支持https）
+        String url = "http://api.map.baidu.com/geocoder?location=39,117&output=json";
         mQueue.add(new JsonObjectRequest(Method.GET, url, null,
                 new Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         long time = System.currentTimeMillis() - requestStartTime;
-                        Log.d(TAG, "Volley 请求结束 : " + time);
+                        Toast.makeText(VolleyDemoActivity.this,"Volley 请求结束 : " + time,Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Volley 请求耗时 : " + time);
                     }
                 }, null));
         requestStartTime = System.currentTimeMillis();
@@ -72,7 +74,7 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
     }
 
     private void requestHttpClient() {
-        // HttpClient 请求
+        // HttpClient 请求（支持http和https）
         getSupportLoaderManager().initLoader(0, null, new LoaderCallbacks<JSONObject>() {
             @Override
             public Loader<JSONObject> onCreateLoader(int id, Bundle bundle) {
@@ -82,7 +84,8 @@ public class VolleyDemoActivity extends FragmentActivity implements View.OnClick
             @Override
             public void onLoadFinished(Loader<JSONObject> loader, JSONObject result) {
                 long time = System.currentTimeMillis() - requestStartTime;
-                Log.d(TAG, "HttpClient 请求结束 : " + time);
+                Toast.makeText(VolleyDemoActivity.this,"HttpClient 请求结束 : " + time,Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "HttpClient 请求耗时 : " + time);
                 getSupportLoaderManager().destroyLoader(0);
             }
             @Override
