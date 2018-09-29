@@ -32,9 +32,9 @@ public class RatioLayout extends FrameLayout {
     private void initView(Context context, AttributeSet attrs) {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RatioLayout);
         for (int i = 0; i < array.getIndexCount(); i++) {
-            if (i == R.styleable.RatioLayout_ratio) {
+            if (i == R.styleable.RatioLayout_rl_ratio) {
                 mPicRatio = array.getFloat(i, 2.43f);
-            } else if (i == R.styleable.RatioLayout_ratioMode) {
+            } else if (i == R.styleable.RatioLayout_rl_ratioMode) {
                 mRatioMode = array.getInt(i, 0);
             }
         }
