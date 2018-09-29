@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/XImageView.iml" filepath="$PROJECT_DIR$/XImageView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ximageviewlib/ximageviewlib.iml" filepath="$PROJECT_DIR$/ximageviewlib/ximageviewlib.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RatioImageView">
+
+        <!-- 宽度是否根据src图片的比例来测量（高度已知） -->
+        <attr name="riv_is_width_fix_drawable_size_ratio" format="boolean" />
+        <!-- 高度是否根据src图片的比例来测量（宽度已知） -->
+        <attr name="riv_is_height_fix_drawable_size_ratio" format="boolean" />
+        <!--当mIsWidthFitDrawableSizeRatio生效时，最大宽度-->
+        <attr name="riv_max_width_when_width_fix_drawable" format="dimension" />
+        <!--当mIsHeightFitDrawableSizeRatio生效时-->
+        <attr name="riv_max_height_when_height_fix_drawable" format="dimension" />
+        <!-- 高度设置，参考宽度，如0.5 , 表示 高度＝宽度×０.5 -->
+        <attr name="riv_height_to_width_ratio" format="float" />
+        <!-- 宽度设置，参考高度，如0.5 , 表示 宽度＝高度×０.5 -->
+        <attr name="riv_width_to_height_ratio" format="float" />
+        <!--宽度和高度,避免layout_width/layout_height会在超过屏幕尺寸时特殊处理的情况-->
+        <attr name="riv_width" format="dimension" />
+        <attr name="riv_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ShapeImageView">
+        <attr name="siv_shape" format="enum">
+            <enum name="rect" value="1" />
+            <enum name="circle" value="2" />
+            <enum name="oval" value="3" />
+        </attr>
+        <attr name="siv_round_radius" format="dimension" />
+        <attr name="siv_round_radius_leftTop" format="dimension" />
+        <attr name="siv_round_radius_leftBottom" format="dimension" />
+        <attr name="siv_round_radius_rightTop" format="dimension" />
+        <attr name="siv_round_radius_rightBottom" format="dimension" />
+        <attr name="siv_border_size" format="dimension" />
+        <attr name="siv_border_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioLayout">
+        <attr name="ratio" format="float" />
+        <attr name="ratioMode" format="enum">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

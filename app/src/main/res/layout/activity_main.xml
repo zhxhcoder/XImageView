@@ -1,18 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="1dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <com.zhxh.ximageviewlib.RatioImageView
+            android:id="@+id/ad_app_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_bg"
+            app:riv_height_to_width_ratio="0.5625"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+
+            <com.zhxh.ximageviewlib.ShapeImageView
+                android:id="@+id/ad_app_logo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_bg"
+                app:siv_border_color="@android:color/holo_purple"
+                app:siv_border_size="1px"
+                app:siv_round_radius="4dp"
+                app:siv_shape="rect"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/ad_app_logo"
+                android:layout_alignBottom="@+id/ad_app_logo"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toEndOf="@+id/ad_app_logo"
+                android:layout_toRightOf="@+id/ad_app_logo"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ad_app_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="start|top"
+                    android:maxLines="1"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    tools:text="@android:string/cancel" />
+
+                <TextView
+                    android:id="@+id/ad_app_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    tools:text="@android:string/ok" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.zhxh.ximageviewlib.ShapeImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_bg"
+            app:siv_border_color="@color/colorAccent"
+            app:siv_border_size="4dp"
+            app:siv_shape="circle" />
+    </LinearLayout>
+</FrameLayout>
