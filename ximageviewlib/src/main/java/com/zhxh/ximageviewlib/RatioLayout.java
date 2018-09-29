@@ -5,6 +5,10 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+/**
+ * Created by zhxh on 2018/8/29
+ * 根据比例求出高度
+ */
 public class RatioLayout extends FrameLayout {
 
     private float mPicRatio;//图片的宽高比

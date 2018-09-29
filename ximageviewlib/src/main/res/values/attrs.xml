@@ -10,9 +10,9 @@
         <attr name="riv_max_width_when_width_fix_drawable" format="dimension" />
         <!--当mIsHeightFitDrawableSizeRatio生效时-->
         <attr name="riv_max_height_when_height_fix_drawable" format="dimension" />
-        <!-- 高度设置，参考宽度，如0.5 , 表示 高度＝宽度×０.5 -->
+        <!-- 高度设置，参考宽度，如0.5 , 表示 高度＝宽度×0.5 -->
         <attr name="riv_height_to_width_ratio" format="float" />
-        <!-- 宽度设置，参考高度，如0.5 , 表示 宽度＝高度×０.5 -->
+        <!-- 宽度设置，参考高度，如0.5 , 表示 宽度＝高度×0.5 -->
         <attr name="riv_width_to_height_ratio" format="float" />
         <!--宽度和高度,避免layout_width/layout_height会在超过屏幕尺寸时特殊处理的情况-->
         <attr name="riv_width" format="dimension" />

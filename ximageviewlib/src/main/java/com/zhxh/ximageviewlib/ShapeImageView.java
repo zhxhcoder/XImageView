@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
 /**
+ * Created by zhxh on 2018/8/29
  * 处理ImageView形状，原形圆角等
  */
 public class ShapeImageView extends android.support.v7.widget.AppCompatImageView {
@@ -27,13 +28,13 @@ public class ShapeImageView extends android.support.v7.widget.AppCompatImageView
     public static int SHAPE_CIRCLE = 2; // 圆形
     public static int SHAPE_OVAL = 3; // 椭圆
     private final Matrix mShaderMatrix = new Matrix();
-    private float mBorderSize = 0; // 边框大小,默认为０，即无边框
+    private float mBorderSize = 0; // 边框大小,默认为0，即无边框
     private int mBorderColor = Color.WHITE; // 边框颜色，默认为白色
     private int mShape = SHAPE_REC; // 形状，默认为直接矩形
     private float mRoundRadius = 0; // 矩形的圆角半径,默认为０，即直角矩形
     private float mRoundRadiusLeftTop, mRoundRadiusLeftBottom, mRoundRadiusRightTop, mRoundRadiusRightBottom;
     private Paint mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private RectF mViewRect = new RectF(); // imageview的矩形区域
+    private RectF mViewRect = new RectF(); // ImageView的矩形区域
     private RectF mBorderRect = new RectF(); // 边框的矩形区域
     private Paint mBitmapPaint = new Paint();
     private BitmapShader mBitmapShader;

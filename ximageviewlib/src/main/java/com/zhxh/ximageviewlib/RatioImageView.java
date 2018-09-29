@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
 /**
+ * Created by zhxh on 2018/8/29
  * 处理ImageView 比例
  * 优先级从大到小：
  * mIsWidthFitDrawableSizeRatio mIsHeightFitDrawableSizeRatio mWidthRatio mHeightRatio
