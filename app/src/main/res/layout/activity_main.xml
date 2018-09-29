@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_bg"
+            android:src="@drawable/ic_test_750_360"
             app:riv_height_to_width_ratio="0.5625"
             tools:ignore="ContentDescription" />
 
@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ic_bg"
+                android:src="@drawable/ic_test_750_360"
                 app:siv_border_color="@android:color/holo_purple"
                 app:siv_border_size="1px"
                 app:siv_round_radius="4dp"
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_bg"
+            android:src="@drawable/ic_test_750_360"
             app:siv_border_color="@color/colorAccent"
             app:siv_border_size="4dp"
             app:siv_shape="circle" />
