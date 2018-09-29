@@ -1,5 +1,4 @@
-VolleyDemo
+XImageView
 ==========
 
-Michael-VolleyDemo
-This is a demo for Volley
+XImageView 等比例缩放或扩展图片
