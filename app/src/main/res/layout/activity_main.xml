@@ -16,11 +16,22 @@
 
         <com.zhxh.ximageviewlib.RatioImageView
             android:id="@+id/ad_app_image"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_test_750_360"
-            app:riv_height_to_width_ratio="0.5625"
+            app:riv_height_to_width_ratio="0.48"
+            tools:ignore="ContentDescription" />
+
+        <com.zhxh.ximageviewlib.RatioImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_test_750_360"
+            app:riv_height_to_width_ratio="0.48"
             tools:ignore="ContentDescription" />
 
         <RelativeLayout
