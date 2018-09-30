@@ -72,7 +72,7 @@ public class RatioImageView extends android.support.v7.widget.AppCompatImageView
         a.recycle();
     }
 
-    private void onSetDrawable() {
+    private void reSetDrawable() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             // 发生变化，重新调整布局
@@ -90,13 +90,13 @@ public class RatioImageView extends android.support.v7.widget.AppCompatImageView
     @Override
     public void setImageResource(int resId) {
         super.setImageResource(resId);
-        onSetDrawable();
+        reSetDrawable();
     }
 
     @Override
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        onSetDrawable();
+        reSetDrawable();
     }
 
     @Override

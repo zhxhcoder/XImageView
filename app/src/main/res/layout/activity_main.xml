@@ -16,7 +16,7 @@
 
         <com.zhxh.ximageviewlib.RatioImageView
             android:id="@+id/ad_app_image"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_test_750_360"
@@ -26,9 +26,9 @@
         <com.zhxh.ximageviewlib.RatioImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="50dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_test_750_360"
             app:riv_height_to_width_ratio="0.48"
@@ -44,8 +44,8 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_test_750_360"
                 app:siv_border_color="@android:color/holo_purple"
                 app:siv_border_size="1px"
@@ -93,8 +93,8 @@
         </RelativeLayout>
 
         <com.zhxh.ximageviewlib.ShapeImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_test_750_360"
             app:siv_border_color="@color/colorAccent"

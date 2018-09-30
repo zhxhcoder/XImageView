@@ -1,0 +1,41 @@
+ext {
+
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: '28.0.2',
+            applicationId    : 'com.zhxh.ximageview',
+            minSdkVersion    : 16,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : '1.1',
+            minifyEnabled    : false,
+            outputFileName   : "ximageview.aar"
+    ]
+
+    dependencies = [
+            'libSupportV7'       : 'com.android.support:appcompat-v7:28.0.0',
+            'libConstraintLayout': 'com.android.support.constraint:constraint-layout:1.1.3',
+    ]
+
+    build = [
+            'outputFileName'       : 'ximageview.aar',
+    ]
+
+    bintray = [
+            'version'    : "1.1",
+            'groupId'    : 'com.zhxh',//groupId
+            'publish'    : true,
+            'packageName': 'ximageview',//packageName
+            'userOrg'    : 'zhxh',//自己bintray创建的organization名称
+            'siteUrl'    : 'https://github.com/zhxhcoder/XImageView',  //项目的主页
+            'gitUrl'     : 'https://github.com/zhxhcoder/XImageView.git', //github仓库的地址
+            'repo'       : 'android', //创建的仓库名字
+            'name'       : 'XImageView',
+            'desc'       : 'extent imageview with more customized feature',//版本描述
+            'userId'     : 'geekcoder',
+            'userEmail'  : 'zhxhcoder@gmail.com',
+            'vcsTag'     : 'v1.1'
+    ]
+
+}
+

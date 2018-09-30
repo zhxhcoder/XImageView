@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
 
     buildTypes {
@@ -15,11 +18,128 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    android.libraryVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = rootProject.ext.build.outputFileName
+            }
+    }
+}
+
+this.project.afterEvaluate {
+    def buildTask = this.project.tasks.getByName('assembleRelease')
+    if (buildTask == null) throw GradleException
+    buildTask.doLast {
+        copyApk.execute()
+    }
+}
+
+/** 执行完成打包后将文件复制到主项目的资源文件中*/
+task copyApk {
+    doLast {
+        if (rootProject.file('app/libs/'+rootProject.ext.build.outputFileName).exists()) {
+            println('我先删除了旧的aar包')
+            rootProject.file('app/libs/'+rootProject.ext.build.outputFileName).delete()
+        }
+        copy {
+            from "${buildDir}/outputs/aar/"+rootProject.ext.build.outputFileName
+            into rootProject.file('app/libs/')
+            println('新的aar包已经复制到app/libs/')
+        }
+    }
 
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies.libSupportV7
 }
+
+def siteUrl = rootProject.ext.bintray.siteUrl   //项目的主页
+def gitUrl = rootProject.ext.bintray.gitUrl   //github仓库的地址
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+version = rootProject.ext.bintray.version//version
+group = rootProject.ext.bintray.groupId//groupId
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    pkg {
+        repo = rootProject.ext.bintray.repo//创建的仓库名字
+        name = rootProject.ext.bintray.name//packageName
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']//创建仓库时选择的license type
+        userOrg = rootProject.ext.bintray.userOrg //自己bintray创建的organization名称
+        publish = true // 是否是公开项目。
+
+        version {
+            name = rootProject.ext.bintray.version//版本号
+            desc = rootProject.ext.bintray.desc//版本描述
+            released = new Date()
+            vcsTag = rootProject.ext.bintray.vcsTag
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+    }
+    configurations = ['archives']
+}
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                //项目描述
+                description rootProject.ext.bintray.desc
+                url siteUrl
+                // 填写开源协议
+                licenses {
+                    license {
+                        name 'Apache-2.0'
+                        url ' http://www.apache.org/licenses/LICENSE-2.0'
+                    }
+                }
+                developers {
+                    developer {
+                        id rootProject.ext.bintray.userId
+                        //填写邮件地址
+                        email rootProject.ext.bintray.userEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+//打包源码
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+//打包源码doc文档
+task javadoc(type: Javadoc) {
+    options.encoding = "UTF-8"
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
