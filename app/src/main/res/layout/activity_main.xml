@@ -30,7 +30,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_test_750_360"
+            android:src="@drawable/ic_banner_468_240"
             app:riv_height_to_width_ratio="0.48"
             tools:ignore="ContentDescription" />
 
