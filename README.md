@@ -1,6 +1,6 @@
 # XImageView
 
-XImageView 实现ImageView按比例缩放等效果
+[XImageView 实现ImageView按比例缩放等效果](https://www.jianshu.com/p/b9a5aeb07978)
 
 ### 0. 源码地址
 https://github.com/zhxhcoder/XImageView
