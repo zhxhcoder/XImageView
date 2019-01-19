@@ -31,7 +31,7 @@ public class ShapeImageView extends android.support.v7.widget.AppCompatImageView
     private float mBorderSize = 0; // 边框大小,默认为0，即无边框
     private int mBorderColor = Color.WHITE; // 边框颜色，默认为白色
     private int mShape = SHAPE_REC; // 形状，默认为直接矩形
-    private float mRoundRadius = 0; // 矩形的圆角半径,默认为０，即直角矩形
+    private float mRoundRadius = 0; // 矩形的圆角半径,默认为0，即直角矩形
     private float mRoundRadiusLeftTop, mRoundRadiusLeftBottom, mRoundRadiusRightTop, mRoundRadiusRightBottom;
     private Paint mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private RectF mViewRect = new RectF(); // ImageView的矩形区域
@@ -172,7 +172,7 @@ public class ShapeImageView extends android.support.v7.widget.AppCompatImageView
         mBitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         mBitmapPaint.setShader(mBitmapShader);
 
-        // 固定为CENTER_CROP,使图片在ｖｉｅｗ中居中并裁剪
+        // 固定为CENTER_CROP,使图片在view中居中并裁剪
         mShaderMatrix.set(null);
         // 缩放到高或宽　与view的高或宽　匹配
         float scale = Math.max(getWidth() * 1f / mBitmap.getWidth(), getHeight() * 1f / mBitmap.getHeight());
